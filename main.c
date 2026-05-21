@@ -22,7 +22,6 @@ void test_sgemm() {
 
     float C[N*N] = { 0.0f };
 
-    // C[0] = 1*1 + 2*2 + 3*3 + 4*4 = 1+4+9+16 = 30
     float expected[N*N] = { 30.0f, 30.0f, 30.0f, 30.0f, 
                             70.0f, 70.0f, 70.0f, 70.0f, 
                             10.0f, 10.0f, 10.0f, 10.0f, 
@@ -33,7 +32,7 @@ void test_sgemm() {
 
     int passed = 1;
     for(int i = 0; i < N*N; i++) {
-        if (fabsf(C[i] - expected[i]) > 1e-4) { // погрешность чуть больше для float
+        if (fabsf(C[i] - expected[i]) > 1e-4) { 
             passed = 0;
             printf("Error at C[%d]: expected %f, got %f\n", i, expected[i], C[i]);
             break;
@@ -95,7 +94,7 @@ void test_cgemm() {
     float C[N*N*2] = { 0 };
     
     for(int i=0; i<N*N; i++) {
-        A[i*2] = (float)(i + 1); // 1.0, 2.0, 3.0...
+        A[i*2] = (float)(i + 1); 
         B[i*2] = 2.0f;
     }
 
